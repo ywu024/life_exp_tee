@@ -1,0 +1,25 @@
+---
+title: "classnote"
+author: "Yaning Wu"
+date: "1/13/2022"
+output: pdf_document
+---
+
+```{r}
+library(tidyverse)
+library(gapminder)
+```
+
+```{r}
+data("gapminder_unfiltered")
+nrow(gapminder_unfiltered)
+```
+```{r}
+gapminder_unfiltered |>
+  group_by(year) |>
+  filter(lifeExp==max(lifeExp))|>
+  ungroup() |>
+select(year,country,lifeExp)->
+  sumdat
+```
+
